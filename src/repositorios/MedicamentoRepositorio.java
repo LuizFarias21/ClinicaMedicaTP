@@ -2,4 +2,4 @@ package repositorios;
 
 import entidades.Medicamento;
 
-public class MedicamentoRepositorio extends TratamentoRepositorio<Medicamento> { }
+public final class MedicamentoRepositorio extends TratamentoRepositorio<Medicamento> { }

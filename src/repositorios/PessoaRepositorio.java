@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public abstract class PessoaRepositorio<TipoPessoa extends Pessoa> extends GenericoRepositorio<TipoPessoa> {
 
-    private static final ArrayList<Pessoa> listaPessoas = new ArrayList<>();
+    private static final ArrayList<Pessoa> LISTA_PESSOAS = new ArrayList<>();
 
     @Override
     public void cadastrar(TipoPessoa tipoPessoa) {
         super.cadastrar(tipoPessoa);
-        listaPessoas.add(tipoPessoa);
+        LISTA_PESSOAS.add(tipoPessoa);
     }
 
     @Override
@@ -25,16 +25,16 @@ public abstract class PessoaRepositorio<TipoPessoa extends Pessoa> extends Gener
     @Override
     public void atualizar(TipoPessoa pessoa, TipoPessoa novaPessoa) {
         super.atualizar(pessoa, novaPessoa);
-        listaPessoas.set(listaPessoas.indexOf(pessoa), novaPessoa);
+        LISTA_PESSOAS.set(LISTA_PESSOAS.indexOf(pessoa), novaPessoa);
     }
 
     @Override
     public void remover(TipoPessoa tipoPessoa) {
         super.remover(tipoPessoa);
-        listaPessoas.remove(tipoPessoa);
+        LISTA_PESSOAS.remove(tipoPessoa);
     }
 
     public ArrayList<Pessoa> getListaPessoas() {
-        return listaPessoas;
+        return LISTA_PESSOAS;
     }
 }

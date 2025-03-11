@@ -1,5 +1,5 @@
 package entidades;
 
-public class Pagamento {
+public final class Pagamento {
 
 }

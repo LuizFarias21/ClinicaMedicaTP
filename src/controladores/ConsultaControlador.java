@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class ConsultaControlador extends TratamentoControlador<Consulta> {
+public final class ConsultaControlador extends TratamentoControlador<Consulta> {
 
     private ConsultaServico consultaServico;
     private ConsultaVisao consultaVisao;

@@ -22,24 +22,11 @@ public abstract class TratamentoServico<TipoTratamento extends Tratamento> exten
     @Override
     public TipoTratamento buscar(String identificador) throws DadoInvalidoException {
         TipoTratamento tratamento = tratamentoRepositorio.buscar(identificador);
-        verificarTratamentoNulo(tratamento);
         return tratamento;
     }
 
     @Override
     public void atualizar(TipoTratamento tratamento, TipoTratamento novoTratamento) throws DadoInvalidoException {
-        verificarTratamentoNulo(tratamento);
         tratamentoRepositorio.atualizar(tratamento, novoTratamento);
-    }
-
-    @Override
-    public void remover(String identificador) throws DadoInvalidoException {
-        TipoTratamento tratamento = tratamentoRepositorio.buscar(identificador);
-        verificarTratamentoNulo(tratamento);
-        tratamentoRepositorio.remover(tratamento);
-    }
-
-    public void verificarTratamentoNulo(Tratamento tratamento) throws DadoInvalidoException {
-        if (tratamento == null) throw new DadoInvalidoException("Nenhum tratamento encontrado!");
     }
 }

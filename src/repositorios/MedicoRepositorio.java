@@ -2,4 +2,4 @@ package repositorios;
 
 import entidades.Medico;
 
-public class MedicoRepositorio extends PessoaRepositorio<Medico> { }
+public final class MedicoRepositorio extends PessoaRepositorio<Medico> { }

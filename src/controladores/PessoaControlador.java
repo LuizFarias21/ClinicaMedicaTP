@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends GenericoControlador<TipoPessoa> {
 
-    private PessoaServico<TipoPessoa> pessoaServico;
+    private final PessoaServico<TipoPessoa> pessoaServico;
 
     public PessoaControlador(PessoaServico<TipoPessoa> pessoaServico) {
         this.pessoaServico = pessoaServico;
@@ -27,7 +27,6 @@ public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends Gener
     @Override
     public TipoPessoa buscar() {
 
-
         try {
 
             ArrayList<TipoPessoa> listaPessoas = pessoaServico.listar();
@@ -40,7 +39,6 @@ public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends Gener
                 GenericoVisao.exibirMensagemErro(e.getMessage());
             }
             return null;
-
     }
 
     @Override

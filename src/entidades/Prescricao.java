@@ -3,7 +3,7 @@ package entidades;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Prescricao {
+public final class Prescricao {
 
     private Consulta consultaAssociada;
     private ArrayList<Exame> examesPrescritos;

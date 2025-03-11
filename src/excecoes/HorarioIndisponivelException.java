@@ -2,7 +2,7 @@ package excecoes;
 
 import entidades.Consulta;
 
-public class HorarioIndisponivelException extends Exception {
+public final class HorarioIndisponivelException extends Exception {
 
 //    public HorarioIndisponivelException(Consulta consulta) {
 //		super(String.format(

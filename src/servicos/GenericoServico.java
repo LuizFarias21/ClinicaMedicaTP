@@ -16,7 +16,7 @@ public abstract class GenericoServico<TipoEntidade> {
     protected abstract TipoEntidade buscar(String identificador) throws DadoInvalidoException;
     protected abstract void atualizar(TipoEntidade entidade, TipoEntidade novaEntidade) throws DadoInvalidoException;
 
-    public void remover(String identificador) throws DadoInvalidoException {
+    public final void remover(String identificador) throws DadoInvalidoException {
         TipoEntidade entidade = buscar(identificador);
         genericoRepositorio.remover(entidade);
     }

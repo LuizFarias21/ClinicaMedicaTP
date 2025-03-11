@@ -1,6 +1,5 @@
 package visoes;
 
-import java.time.LocalDate;
 import javax.swing.*;
 
 import controladores.PacienteControlador;

@@ -4,7 +4,7 @@ import entidades.Exame;
 import servicos.ExameServico;
 import visoes.ExameVisao;
 
-public class ExameControlador extends TratamentoControlador<Exame> {
+public final class ExameControlador extends TratamentoControlador<Exame> {
     private ExameServico exameServico;
     private ExameVisao exameVisao;
 
