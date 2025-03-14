@@ -32,8 +32,6 @@ public abstract class GenericoVisao<TipoEntidade> {
 
     public abstract void buscar();
 
-    public abstract void listar();
-
     public abstract void atualizar();
 
     public abstract void remover();

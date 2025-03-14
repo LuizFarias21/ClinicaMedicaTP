@@ -5,14 +5,14 @@ import javax.swing.*;
 public class SistemaVisao {
 
     private final PacienteVisao pacienteVisao;
-    private final MedicoVisao medicoInterface;
+    private final MedicoVisao medicoVisao;
     private final ConsultaVisao consultaVisao;
     private final ExameVisao exameVisao;
     private final MedicamentoVisao medicamentoVisao;
 
-    public SistemaVisao(PacienteVisao pacienteVisao, MedicoVisao medicoInterface, ConsultaVisao consultaVisao, ExameVisao exameVisao, MedicamentoVisao medicamentoVisao) {
+    public SistemaVisao(PacienteVisao pacienteVisao, MedicoVisao medicoVisao, ConsultaVisao consultaVisao, ExameVisao exameVisao, MedicamentoVisao medicamentoVisao) {
         this.pacienteVisao = pacienteVisao;
-        this.medicoInterface = medicoInterface;
+        this.medicoVisao = medicoVisao;
         this.consultaVisao = consultaVisao;
         this.exameVisao = exameVisao;
         this.medicamentoVisao = medicamentoVisao;
@@ -21,17 +21,17 @@ public class SistemaVisao {
     public void exibirVisao() {
         while(true) {
 
-            String[] options = {"Gerenciar Pacientes", "Gerenciar Médicos", "Gerenciar Consultas", "Gerenciar Exames", "Gerenciar Medicamentos", "Sair"};
+            String[] opcoesMenu = {"Gerenciar Pacientes", "Gerenciar Médicos", "Gerenciar Consultas", "Gerenciar Exames", "Gerenciar Medicamentos", "Sair"};
 
-            int escolha = JOptionPane.showOptionDialog(null, "Gerenciador de clínica médica", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Gerenciador de clínica médica", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenu, opcoesMenu[0]);
 
-            switch (escolha) {
+            switch (opcaoEscolhida) {
                 case 0:
                     pacienteVisao.exibir();
                     break;
                 case 1:
-                    medicoInterface.exibir();
+                    medicoVisao.exibir();
                     break;
                 case 2:
                     consultaVisao.exibir();

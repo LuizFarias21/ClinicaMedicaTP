@@ -19,14 +19,14 @@ public class MedicamentoVisao extends TratamentoVisao<Medicamento> {
     public void exibir() {
         while (true) {
 
-            String[] opcoes = {"Cadastrar Medicamento", "Buscar Medicamento", "Atualizar Medicamento", "Remover Medicamento", "Voltar"};
+            String[] menuOpcoes = {"Cadastrar Medicamento", "Buscar Medicamento", "Atualizar Medicamento", "Remover Medicamento", "Voltar"};
 
             // Exibe a caixa de texto com a opção selecionada
-            int escolha = JOptionPane.showOptionDialog(null, "Menu Medicamento", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Menu Medicamento", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, menuOpcoes, menuOpcoes[0]);
 
             // Verificar escolha do usuário
-            switch (escolha) {
+            switch (opcaoEscolhida) {
                 case 0:
                     cadastrar();
                     break;

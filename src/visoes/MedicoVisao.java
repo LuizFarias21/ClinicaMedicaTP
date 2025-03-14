@@ -1,6 +1,5 @@
 package visoes;
 
-import java.time.LocalDate;
 import javax.swing.*;
 
 import controladores.MedicoControlador;
@@ -18,14 +17,14 @@ public class MedicoVisao extends PessoaVisao {
     public void exibir() {
         while (true) {
 
-            String[] opcoes = {"Cadastrar Médicos", "Buscar Médicos",
+            String[] opcoesMenu = {"Cadastrar Médicos", "Buscar Médicos",
                     "Atualizar Médicos", "Remover Médicos", "Voltar"};
 
             // Exibe a caixa de texto com a opção selecionada
-            int escolha = JOptionPane.showOptionDialog(null, "Menu Médico", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Menu Médico", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenu, opcoesMenu[0]);
 
-            switch (escolha) {
+            switch (opcaoEscolhida) {
                 case 0:
                     cadastrar();
                     break;
@@ -42,10 +41,5 @@ public class MedicoVisao extends PessoaVisao {
                     return;
             }
         }
-    }
-
-    @Override
-    public void listar() {
-
     }
 }

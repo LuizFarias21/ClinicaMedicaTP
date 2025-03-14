@@ -6,6 +6,8 @@ import excecoes.DadoInvalidoException;
 import servicos.PacienteServico;
 import visoes.GenericoVisao;
 import visoes.PacienteVisao;
+import visoes.PessoaVisao;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -39,8 +41,13 @@ public final class PacienteControlador extends PessoaControlador<Paciente> {
     public void atualizar() {
             
         try {
+            ArrayList<String[]> dados = new ArrayList<>();
             ArrayList<Paciente> listaPacientes = pacienteServico.listar();
-            String cpf = GenericoVisao.solicitarEntrada(imprimirLista(listaPacientes) + "Digite o CPF do paciente que deseja atualizar os dados:");
+            for (Paciente paciente : listaPacientes) {
+                dados.add(new String[]{paciente.getCpf(), paciente.getNome(), paciente.getDataNascimento().toString()});
+            }
+            String cpf = PessoaVisao.solicitarEntradaBuscar(dados);
+            if (cpf == null) return;
             Paciente paciente = pacienteServico.buscar(cpf);
     
             Paciente novoPaciente = criarPaciente();

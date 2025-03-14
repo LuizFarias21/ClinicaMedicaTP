@@ -14,12 +14,12 @@ public abstract class PessoaServico<TipoPessoa extends Pessoa> extends GenericoS
         this.pessoaRepositorio = pessoaRepositorio;
     }
 
-    @Override
-    public void cadastrar(TipoPessoa pessoa) throws DadoInvalidoException {
-        if (validarCpf(pessoa.getCpf())) throw new DadoInvalidoException("Você precisa digitar um CPF válido!");
-        if (validarCpfDuplicado(pessoa.getCpf())) throw new DadoInvalidoException("Já existe um registro com o CPF: " + pessoa.getCpf());
-        pessoaRepositorio.cadastrar(pessoa);
-    }
+@Override
+public void cadastrar(TipoPessoa pessoa) throws DadoInvalidoException {
+    if (validarCpf(pessoa.getCpf())) throw new DadoInvalidoException("Você precisa digitar um CPF válido!");
+    if (validarCpfDuplicado(pessoa.getCpf())) throw new DadoInvalidoException("Já existe um registro com o CPF: " + pessoa.getCpf());
+    pessoaRepositorio.cadastrar(pessoa);
+}
 
     @Override
     public TipoPessoa buscar(String cpf) throws DadoInvalidoException {
@@ -48,7 +48,7 @@ public abstract class PessoaServico<TipoPessoa extends Pessoa> extends GenericoS
 
     public boolean validarCpf(String cpf) {
 
-        if (cpf == null || cpf.trim().isEmpty()) return true;
+        if (cpf.trim().isEmpty()) return true;
 
         // Segue o formato XXX.XXX.XXX-XX?
         final Pattern cpfPattern = Pattern.compile("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}");

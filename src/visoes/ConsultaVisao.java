@@ -18,15 +18,15 @@ public class ConsultaVisao extends TratamentoVisao<Consulta> {
     public void exibir() {
         while (true) {
 
-            String[] opcoes = {"Agendar Consulta", "Cancelar Consulta", "Finalizar Consulta", "Buscar Consulta",
+            String[] opcoesMenu = {"Agendar Consulta", "Cancelar Consulta", "Finalizar Consulta", "Buscar Consulta",
                     "Atualizar Consulta", "Remover Consulta", "Voltar"};
 
             // Exibe a caixa de texto com a opção selecionada
-            int escolha = JOptionPane.showOptionDialog(null, "Menu Consulta", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Menu Consulta", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenu, opcoesMenu[0]);
 
-            // Verificar escolha do usuário
-            switch (escolha) {
+            // Verificar opcaoEscolhida do usuário
+            switch (opcaoEscolhida) {
                 case 0:
                     agendar();
                     break;

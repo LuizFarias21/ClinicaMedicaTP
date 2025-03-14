@@ -4,6 +4,8 @@ import entidades.Pessoa;
 import excecoes.DadoInvalidoException;
 import servicos.PessoaServico;
 import visoes.GenericoVisao;
+import visoes.PessoaVisao;
+
 import java.util.ArrayList;
 
 public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends GenericoControlador<TipoPessoa> {
@@ -14,24 +16,17 @@ public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends Gener
         this.pessoaServico = pessoaServico;
     }
 
-    public String imprimirLista(ArrayList<TipoPessoa> listaPessoas) {
-        String mensagem = "---------------------------------\n";
-
-        for (TipoPessoa pessoa : listaPessoas) {
-            mensagem +=  pessoa.getCpf() + " - " + pessoa.getNome() + "\n";
-            mensagem += "---------------------------------\n";
-        }
-        return mensagem;
-    }
-
     @Override
     public TipoPessoa buscar() {
 
         try {
-
+            ArrayList<String[]> dados = new ArrayList<>();
             ArrayList<TipoPessoa> listaPessoas = pessoaServico.listar();
-
-            String cpf = GenericoVisao.solicitarEntrada(imprimirLista(listaPessoas) + "\nDigite o CPF da pessoa:");
+            for (TipoPessoa pessoa : listaPessoas) {
+                dados.add(new String[]{pessoa.getCpf(), pessoa.getNome(), pessoa.getDataNascimento().toString()});
+            }
+            String cpf = PessoaVisao.solicitarEntradaBuscar(dados);
+            if (cpf == null) return null;
             TipoPessoa pessoa = pessoaServico.buscar(cpf);
             GenericoVisao.exibirMensagemInfo("Pessoa encontrada: " + pessoa.getNome());
             return pessoa;
@@ -45,8 +40,13 @@ public abstract class PessoaControlador<TipoPessoa extends Pessoa> extends Gener
     public void remover() {
 
         try {
+            ArrayList<String[]> dados = new ArrayList<>();
             ArrayList<TipoPessoa> listaPessoas = pessoaServico.listar();
-            String cpf = GenericoVisao.solicitarEntrada(imprimirLista(listaPessoas) + "Digite o CPF da pessoa que deseja remover:");
+            for (TipoPessoa pessoa : listaPessoas) {
+                dados.add(new String[]{pessoa.getCpf(), pessoa.getNome(), pessoa.getDataNascimento().toString()});
+            }
+            String cpf = PessoaVisao.solicitarEntradaBuscar(dados);
+            if (cpf == null) return;
 
             pessoaServico.remover(cpf);
             GenericoVisao.exibirMensagemInfo("Registro da pessoa com o CPF: " + cpf + " foi excluído com sucesso!");

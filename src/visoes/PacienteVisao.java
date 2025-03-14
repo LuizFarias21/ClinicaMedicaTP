@@ -15,14 +15,14 @@ public class PacienteVisao extends PessoaVisao<Paciente> {
     public void exibir() {
         while (true) {
 
-            String[] opcoes = {"Cadastrar Pacientes", "Buscar Pacientes",
+            String[] opcoesMenu = {"Cadastrar Pacientes", "Buscar Pacientes",
                     "Atualizar Pacientes", "Remover Pacientes", "Voltar"};
 
             // Exibe a caixa de texto com a opção selecionada
-            int escolha = JOptionPane.showOptionDialog(null, "Menu Paciente", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Menu Paciente", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenu, opcoesMenu[0]);
 
-            switch (escolha) {
+            switch (opcaoEscolhida) {
                 case 0:
                     cadastrar();
                     break;
@@ -39,11 +39,6 @@ public class PacienteVisao extends PessoaVisao<Paciente> {
                     return;
             }
         }
-    }
-
-    @Override
-    public void listar() {
-
     }
 }
 

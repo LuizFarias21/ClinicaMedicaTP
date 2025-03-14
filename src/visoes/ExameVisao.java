@@ -18,14 +18,14 @@ public class ExameVisao extends TratamentoVisao<Exame> {
     public void exibir() {
         while (true) {
 
-            String[] opcoes = {"Cadastrar Exame", "Buscar Exame", "Atualizar Exame", "Remover Exame", "Voltar"};
+            String[] opcoesMenu = {"Cadastrar Exame", "Buscar Exame", "Atualizar Exame", "Remover Exame", "Voltar"};
 
             // Exibe a caixa de texto com a opção selecionada
-            int escolha = JOptionPane.showOptionDialog(null, "Menu Exame", "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+            int opcaoEscolhida = JOptionPane.showOptionDialog(null, "Menu Exame", "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenu, opcoesMenu[0]);
 
             // Verificar escolha do usuário
-            switch (escolha) {
+            switch (opcaoEscolhida) {
                 case 0:
                     cadastrar();
                     break;

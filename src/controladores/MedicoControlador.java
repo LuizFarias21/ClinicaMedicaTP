@@ -2,10 +2,13 @@ package controladores;
 
 import entidades.Consulta;
 import entidades.Medico;
+import entidades.Paciente;
 import excecoes.DadoInvalidoException;
 import servicos.MedicoServico;
 import visoes.GenericoVisao;
 import visoes.MedicoVisao;
+import visoes.PessoaVisao;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -24,9 +27,8 @@ public final class MedicoControlador extends PessoaControlador<Medico> {
 
     @Override
     public void cadastrar() {
-        Medico medico = criarMedico();
-
         try {
+            Medico medico = criarMedico();
             medicoServico.cadastrar(medico); // Cadastrar o médico no serviço
             GenericoVisao.exibirMensagemInfo("Cadastro concluído com sucesso!");
         } catch (DadoInvalidoException e) {
@@ -39,8 +41,13 @@ public final class MedicoControlador extends PessoaControlador<Medico> {
     public void atualizar() {
 
         try {
-            ArrayList<Medico> listaPacientes = medicoServico.listar();
-            String cpf = GenericoVisao.solicitarEntrada(imprimirLista(listaPacientes) + "Digite o CPF do medico que deseja atualizar os dados:");
+            ArrayList<String[]> dados = new ArrayList<>();
+            ArrayList<Medico> listaMedicos = medicoServico.listar();
+            for (Medico medico : listaMedicos) {
+                dados.add(new String[]{medico.getCpf(), medico.getNome(), medico.getDataNascimento().toString()});
+            }
+            String cpf = PessoaVisao.solicitarEntradaBuscar(dados);
+            if (cpf == null) return;
             Medico medico = medicoServico.buscar(cpf);
 
             Medico novoMedico = criarMedico();
